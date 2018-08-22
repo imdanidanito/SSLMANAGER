@@ -22,7 +22,7 @@ public class persona extends miConexion{
 		
 		try {
 			
-			String consulta="SELECT p.nombre,o.cabina,o.usuario,o.clave,r.descripcion FROM persona p,operador o,rol r WHERE usuario=? AND clave=? AND o.n_empleado=p.id_persona";
+			String consulta="SELECT p.nombre,o.cabina,o.usuario,o.clave,r.descripcion FROM persona p,operador o,rol r WHERE usuario=? AND clave=? AND o.n_empleado=p.id_persona AND r.id_rol=o.n_empleado";
 			
 			pst=getConexion().prepareStatement(consulta);
 			pst.setString(1, usuario);
@@ -46,9 +46,7 @@ public class persona extends miConexion{
 			
 			
 			
-			 /*
-			  * prueba variables
-			  * int texto=this.getUsuario_priv();
+			 /*int texto=this.getUsuario_priv();
 			String x=this.getUsuario_nombre();
 			
 			if(rs.next()) {

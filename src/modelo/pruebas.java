@@ -9,7 +9,7 @@ public class pruebas {
 		
 		persona ur=new persona();
 		
-		ur.validacion("mramirez", "miriam");
+		ur.validacion("dmillan", "123456");
 			
 
 	}
