@@ -35,6 +35,8 @@ public class validar extends HttpServlet {
 		String usuario=request.getParameter("usuario");
 		String clave=request.getParameter("clave");
 		
+		
+		
 		persona i = new persona();
 		i.validacion(usuario, clave);
 		
