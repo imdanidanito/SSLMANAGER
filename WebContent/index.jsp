@@ -6,6 +6,7 @@
 <meta charset="UTF-8">
 	 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
      <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
+     <link rel="stylesheet" type="text/css" href="materialize/css/anime.css">
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>SSL Manager</title>
 </head>
@@ -18,7 +19,7 @@
 	}
 
 </style>
-<body class="c0ca33 lime darken-1">
+<body>
 	 <nav>
 	    <div class="nav-wrapper	#00695c teal darken-4">
 	      <a href="img/ssl_digital.png" class="brand-logo left thin">SSL Manager</a>
