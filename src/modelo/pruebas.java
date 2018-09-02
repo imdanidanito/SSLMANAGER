@@ -1,16 +1,17 @@
 package modelo;
 
-import modelo.persona;;
+import modelo.alta_user;
 
 
 public class pruebas {
 
 	public static void main(String[] args) {
 		
-		persona ur=new persona();
+		alta_user usr= new alta_user();
 		
-		ur.validacion("dmillan", "123456");
-			
+		usr.registro(11, "Marina Ramos", "marina@icloud.com");
+		usr.registro_n(11, 1);
+		usr.registro_o(11, 3, "mramos", "123456");
 
 	}
 
