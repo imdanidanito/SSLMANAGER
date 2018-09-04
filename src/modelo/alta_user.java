@@ -15,21 +15,31 @@ public class alta_user extends miConexion {
 	private int cabina;
 	private int nivel;
 	
-	public void  registro (int id, String nombre, String correo) {
+	public void  registro (String nombre, String correo) {
 		
-		
+		Statement st=null;
 		PreparedStatement ps=null;
 		
 		
 		try {
 			
+			st=getConexion().createStatement();
+			
+			String consulta="SELECT MAX(id_persona) FROM persona";
+			
+			ResultSet Mirs= st.executeQuery(consulta);
+			
+			Mirs.next();
+			
+			int valor = Mirs.getInt("MAX(id_persona)") + 1;
+			
 			String sql 	= "INSERT INTO persona(id_persona,nombre,email) VALUES(?,?,?)";
 			
 			ps=getConexion().prepareStatement(sql);
 			
-			ps.setInt(1, id);
-			ps.setString(2, nombre);
-			ps.setString(3, correo);
+			ps.setInt(1, valor);
+			ps.setString(2, this.getNombre());
+			ps.setString(3, this.getCorreo());
 			
 			ps.executeLargeUpdate();
 				
@@ -56,18 +66,29 @@ public class alta_user extends miConexion {
 		
 	}
 	
-	public void registro_n (int id_r,int nivel) {
+	public void registro_n (int nivel) {
 		
 		PreparedStatement ps1=null;
+		Statement st1=null;
 		
 		try {
 			
+			st1=getConexion().createStatement();
+			
+			String consulta1="SELECT MAX(id_rol) FROM rol";
+			
+			ResultSet Mirs1=st1.executeQuery(consulta1);
+			
+			Mirs1.next();
+			
+			int valor1=Mirs1.getInt("MAX(id_rol)") + 1;
+					
 			String sql="INSERT INTO rol (id_rol, descripcion) VALUES(?,?)";
 			
 			ps1=getConexion().prepareStatement(sql);
 			
-	 	 	ps1.setInt(1, id_r);
-			ps1.setInt(2, nivel);
+	 	 	ps1.setInt(1, valor1);
+			ps1.setInt(2, this.getNivel());
 			
 			ps1.executeUpdate();
 			
@@ -90,14 +111,24 @@ public class alta_user extends miConexion {
 			
 		}
 	
-	public void registro_o (int id_o, int cabina, String usuario, String clave) {
+	public void registro_o (int cabina, String usuario, String clave) {
 		
 		Connection con= getConexion();
 		PreparedStatement pst=null;
+		Statement st2=null;
 		
 		try {
 			
 			Statement ps2 = con.createStatement();
+			st2=getConexion().createStatement();
+			
+			String consulta2="SELECT MAX(n_empleado) FROM operador";
+			
+			ResultSet Mirs2=st2.executeQuery(consulta2);
+			
+			Mirs2.next();
+			
+			int valor2=Mirs2.getInt("MAX(n_empleado)") + 1;
 			
 		
 			String i = "SELECT MAX(id_persona) FROM persona";
@@ -123,11 +154,11 @@ public class alta_user extends miConexion {
 			
 			pst=getConexion().prepareStatement(sql);
 			
-			pst.setInt(1, id_o);
+			pst.setInt(1, valor2);
 			pst.setInt(2,columna_p);
-			pst.setInt(3, cabina);
-			pst.setString(4, usuario);
-			pst.setString(5, clave);
+			pst.setInt(3, this.getCabina());
+			pst.setString(4, this.getUsuario());
+			pst.setString(5, this.getClave());
 			pst.setInt(6, columna_r);
 			
 			pst.executeUpdate();

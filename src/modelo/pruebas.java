@@ -9,9 +9,9 @@ public class pruebas {
 		
 		alta_user usr= new alta_user();
 		
-		usr.registro(11, "Marina Ramos", "marina@icloud.com");
-		usr.registro_n(11, 1);
-		usr.registro_o(11, 3, "mramos", "123456");
+		usr.registro("Rocio Rodriguez", "karla@icl");
+		usr.registro_n(2);
+		usr.registro_o(7, "kgonzalez", "123456");
 
 	}
 

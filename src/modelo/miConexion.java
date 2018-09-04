@@ -8,7 +8,7 @@ public class miConexion {
 	private String password="efelante";
 	private String host="localhost";
 	private String port="3306";
-	private String database="sslFinal";
+	private String database="bddssl";
 	private String classname="com.mysql.jdbc.Driver";
 	private String url="jdbc:mysql://"+host+":"+port+"/"+database;
 	private static Connection con;
